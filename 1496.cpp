@@ -8,15 +8,15 @@ int main(){
 //	freopen("text.txt" , "r",stdin);
 //	freopen("file.txt" , "w",stdout);
 	
-	int n;
+	int n,ans=0;
 	
-	map<string,int>m;
+	map<string,bool>m;
 	
 	cin>>n;
 	
-	string s[n];
+	string s[n+1];
 	
-	for(int i=0;i<n;i++){
+	for(int i=0;i<=n;i++){
 		
 		cin>>s[i];
 		
@@ -24,20 +24,14 @@ int main(){
 		
 	}
 	
-	for(int i=0;i<n;i++){
+	for(int i=0;i<=n;i++){
 		
-		m[s[i]]++;
+		if(m[s[i]])ans++;
 		
-	}
-	
-	set<string>ss;
-	
-	for(int i=0;i<n;i++){
-		
-	    if(m[s[i]]>1)ss.insert(s[i]);
+		m[s[i]]=1;
 		
 	}
 	
-	for(auto &j : ss)cout<<j<<endl;
+	cout<<ans;
 	
 }
